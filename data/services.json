@@ -1,0 +1,77 @@
+[
+  {
+    "id": "1",
+    "slug": "extensao-cilios",
+    "name": "Extensão de Cílios",
+    "subtitle": "Volume & Naturalidade",
+    "description": "Extensões que realçam o seu olhar sem pesar. Trabalhamos com fios de alta qualidade adaptados ao seu estilo, proporcionando um resultado natural e duradouro.",
+    "details": [
+      "Fios de seda, sintéticos e naturais",
+      "Técnicas: clássico, volume russo, híbrido",
+      "Duração de 3 a 4 semanas",
+      "Manutenção inclusa na primeira semana"
+    ],
+    "icon": "eye",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "slug": "lash-lifting",
+    "name": "Lash Lifting",
+    "subtitle": "Elevação Natural",
+    "description": "Realce os seus próprios cílios com uma curvatura perfeita e duradoura. Sem extensões — apenas o melhor dos seus fios naturais com efeito de cílios grandes e definidos.",
+    "details": [
+      "Dura de 6 a 8 semanas",
+      "Sem necessidade de rímel diário",
+      "Inclui nutrição e hidratação dos cílios",
+      "Compatível com todos os tipos de cílio"
+    ],
+    "icon": "sparkles",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "slug": "design-sobrancelha",
+    "name": "Design de Sobrancelha",
+    "subtitle": "Moldando o seu Olhar",
+    "description": "Um bom design de sobrancelha transforma o rosto. Respeitamos o contorno natural de cada cliente para criar um traço harmonioso que realce sua beleza única.",
+    "details": [
+      "Mapeamento personalizado",
+      "Técnicas: henna, micropigmentação, fio a fio",
+      "Atendimento individual e consultivo",
+      "Resultado que dura semanas"
+    ],
+    "icon": "pen-line",
+    "featured": true
+  },
+  {
+    "id": "4",
+    "slug": "brow-lamination",
+    "name": "Brow Lamination",
+    "subtitle": "Sobrancelhas Impecáveis",
+    "description": "A técnica de laminação que organiza e fixa os fios das sobrancelhas, criando um efeito de volume e definição que dura semanas sem esforço.",
+    "details": [
+      "Efeito volumoso e preenchido",
+      "Dura até 8 semanas",
+      "Inclui design e nutrição",
+      "Combinável com henna"
+    ],
+    "icon": "wand-sparkles",
+    "featured": true
+  },
+  {
+    "id": "5",
+    "slug": "nail-design",
+    "name": "Nail Design",
+    "subtitle": "Arte nas Pontas dos Dedos",
+    "description": "Unhas que contam a sua história. Designs delicados, minimalistas e cheios de personalidade criados pela especialista Dalath Lauany para complementar a sua beleza.",
+    "details": [
+      "Gel, acrílico e fibra de vidro",
+      "Designs personalizados e exclusivos",
+      "Nail art delicada e minimalista",
+      "Profissional: Dalath Lauany"
+    ],
+    "icon": "palette",
+    "featured": true
+  }
+]

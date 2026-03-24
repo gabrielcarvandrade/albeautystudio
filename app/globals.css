@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap");
+@import "tailwindcss";
+
+/* ─── Custom Cursor ──────────────────────────────────────────── */
+html.hide-cursor,
+html.hide-cursor * {
+  cursor: none !important;
+}
+
+:root {
+  /* Neutrals */
+  --background: #FEFAF7;
+  --surface: #F8F2EE;
+  --surface-hover: #F0E8E2;
+  --border: #E5D9D0;
+  --border-subtle: #EDE5DF;
+
+  /* Typography */
+  --text-primary: #2A1A14;
+  --text-secondary: #5C4038;
+  --text-muted: #9B8B83;
+
+  /* Brand palette */
+  --accent: #C4886E;
+  --accent-hover: #B5795F;
+  --rose: #E8C1B4;
+  --gold: #C9A87C;
+  --gold-light: #E5D0B0;
+  --sage: #9EAD9A;
+
+  /* Glows */
+  --glow-accent: 0 0 24px rgba(196, 136, 110, 0.25);
+  --glow-rose:   0 0 24px rgba(232, 193, 180, 0.35);
+  --glow-gold:   0 0 24px rgba(201, 168, 124, 0.30);
+}
+
+@theme inline {
+  --color-background:    var(--background);
+  --color-surface:       var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border:        var(--border);
+  --color-text-primary:  var(--text-primary);
+  --color-text-secondary:var(--text-secondary);
+  --color-text-muted:    var(--text-muted);
+  --color-accent:        var(--accent);
+  --color-accent-hover:  var(--accent-hover);
+  --color-rose:          var(--rose);
+  --color-gold:          var(--gold);
+  --color-sage:          var(--sage);
+  --font-serif:          "Cormorant Garamond", Georgia, serif;
+  --font-sans:           "Inter", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background:  var(--background);
+  color:       var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar       { width: 3px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* ─── Utility classes ────────────────────────────────────────── */
+.font-serif  { font-family: var(--font-serif); }
+.font-sans   { font-family: var(--font-sans); }
+
+.text-accent  { color: var(--accent); }
+.text-rose    { color: var(--rose); }
+.text-gold    { color: var(--gold); }
+
+.glow-accent  { box-shadow: var(--glow-accent); }
+.glow-rose    { box-shadow: var(--glow-rose); }
+
+/* ─── Nav underline ──────────────────────────────────────────── */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.nav-underline:hover::after { width: 100%; }
+
+/* ─── Grain / Noise texture (very subtle) ────────────────────── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ─── Click Ripple ───────────────────────────────────────────── */
+@keyframes ripple-expand {
+  0%   { width: 0; height: 0; opacity: 0.5; }
+  100% { width: 120px; height: 120px; opacity: 0; }
+}
+
+/* ─── Petal Float ────────────────────────────────────────────── */
+@keyframes petal-float {
+  0%   { transform: translateY(100vh) rotate(0deg) scale(0.8);  opacity: 0; }
+  5%   { opacity: 0.7; }
+  90%  { opacity: 0.5; }
+  100% { transform: translateY(-120px) rotate(720deg) scale(1.1); opacity: 0; }
+}
+
+@keyframes petal-sway {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(18px); }
+  75%       { transform: translateX(-14px); }
+}
+
+.petal {
+  animation: petal-float var(--dur, 8s) ease-in-out var(--delay, 0s) infinite,
+             petal-sway  calc(var(--dur, 8s) * 0.6) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* ─── Gold shimmer ───────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ─── Intro Screen Reveal ────────────────────────────────────── */
+@keyframes curtain-up {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes name-reveal {
+  0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
+  100% { clip-path: inset(0 0% 0 0);   opacity: 1; }
+}
+
+/* ─── Glow pulse for blobs ───────────────────────────────────── */
+@keyframes blob-pulse {
+  0%, 100% { opacity: 0.12; transform: scale(1); }
+  50%       { opacity: 0.22; transform: scale(1.08); }
+}
+
+/* ─── Scroll hint bounce ─────────────────────────────────────── */
+@keyframes bounce-y {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+
+/* ─── Fade-in from below ─────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease forwards;
+}
+
+/* ─── Heading underline decoration ──────────────────────────── */
+.section-heading {
+  position: relative;
+  display: inline-block;
+}
+.section-heading::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* ─── Service card hover lift ────────────────────────────────── */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(196, 136, 110, 0.15);
+}
+
+/* ─── Gallery image hover ────────────────────────────────────── */
+.gallery-item {
+  transition: transform 0.4s ease;
+  overflow: hidden;
+}
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+.gallery-item img {
+  transition: transform 0.4s ease;
+}
+
+/* ─── Gold divider line ──────────────────────────────────────── */
+.divider-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
